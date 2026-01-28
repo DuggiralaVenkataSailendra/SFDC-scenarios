@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expense_Business_Purpose_VR</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISBLANK( Business_Purpose__c ),
+ISPICKVAL( Type__c , &quot;Expense (Outgoing)&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>Business_Purpose__c</errorDisplayField>
+    <errorMessage>If  Type is Expense(Outgoing) Business Purpose Should be Require</errorMessage>
+</ValidationRule>

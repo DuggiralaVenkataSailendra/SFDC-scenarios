@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expense_Item_Date_Greaterthan_Month_VR</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(
+    AND(
+         Date__c  &gt; TODAY() - 30,
+         Date__c  &lt; TODAY()
+    )
+)</errorConditionFormula>
+    <errorMessage>Date Should be within the last 30 days</errorMessage>
+</ValidationRule>

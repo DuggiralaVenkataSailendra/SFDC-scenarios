@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#1C5B12</headerColor>
+        <logo>Expense_Manager_img</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Expense Manager</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>Expense__c</tabs>
+    <tabs>Expense_Item__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>Opportunity_Date_History__c</tabs>
+    <tabs>Product_Margin__c</tabs>
+    <tabs>Opportunity_Probability_History__c</tabs>
+    <tabs>Sensitive_Data__c</tabs>
+    <tabs>Manager_Pipeline_Summary__c</tabs>
+    <tabs>Contract_Integration_Log__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Expense_Manager_UtilityBar</utilityBar>
+</CustomApplication>

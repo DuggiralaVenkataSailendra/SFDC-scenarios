@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Form_IND_Experience</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  ISPICKVAL( Country__c , &quot;India&quot;),
+  OR(
+    VALUE(TEXT( Experience__c )) &lt; 1,
+    VALUE(TEXT( Experience__c )) &gt; 19
+  )
+)</errorConditionFormula>
+    <errorDisplayField>Experience__c</errorDisplayField>
+    <errorMessage>We need 1 to 19yrs of experience candidates only in india</errorMessage>
+</ValidationRule>

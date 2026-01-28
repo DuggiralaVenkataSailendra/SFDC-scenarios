@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Account (Record View)">
+        <lightning-record-view-form
+            record-id={recordId}
+            object-api-name="Account"
+            density="compact">
+            <div class="slds-p-around_medium slds-text-body_regular">
+                <lightning-output-field field-name="Id"></lightning-output-field>
+                <lightning-output-field field-name="Name"></lightning-output-field>
+                <lightning-output-field field-name="Phone"></lightning-output-field>
+                <lightning-output-field field-name="Email__c"></lightning-output-field>
+                <!-- Add more fields as needed -->
+            </div>
+        </lightning-record-view-form>
+    </lightning-card>
+</template>

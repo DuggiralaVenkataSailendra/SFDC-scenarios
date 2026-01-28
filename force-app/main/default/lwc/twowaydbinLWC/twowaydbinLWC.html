@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="two way db in LWC" icon-name="utility:animal_and_nature">
+        <div class="slds-m-around_medium">
+            <lightning-input
+            type="text"
+            label="Enter your Name"
+            value={userEnteredValue}
+            onchange={handleChange}
+            >
+            </lightning-input>
+            <p class="slds-m-around_medium">Welcome to LWC training <strong>{userEnteredValue}</strong></p>
+        </div>
+    </lightning-card>
+</template>

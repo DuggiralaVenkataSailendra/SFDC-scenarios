@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Parent Component in C2P" icon-name="standard:account">
+
+        <div class="slds-p-around_medium">
+            <p><strong>Count = {countValue}</strong></p>
+        </div>
+
+        <c-child-componentc2p
+            onsubstract={handleSubs}
+            onaddition={handleAdds}>
+        </c-child-componentc2p>
+
+    </lightning-card>
+</template>

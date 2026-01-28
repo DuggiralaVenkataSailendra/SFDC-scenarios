@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Copy_1_of_Lead_Source_Partner_Referral</name>
+        <label>Copy 1 of Lead Source Partner Referral</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LeadSource</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Partner Referral</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Lead_Source_Web</name>
+        <label>Copy 1 of Lead Source Web</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LeadSource</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Web</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Copy_2_of_Lead_Source_Partner_Referral</name>
+        <label>Copy 2 of Lead Source Partner Referral</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LeadSource</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Partner Referral</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Copy_2_of_Lead_Source_Web</name>
+        <label>Copy 2 of Lead Source Web</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LeadSource</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Web</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Lead_Source_Partner_Referral</name>
+        <label>Lead Source Partner Referral</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LeadSource</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Partner Referral</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Lead_Source_Web</name>
+        <label>Lead Source Web</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LeadSource</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Web</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Prefix_Fn_0_0</name>
+        <label>Prefix Fn_--</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.FirstName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Gender_No_Like_to_say</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Rating_Decision</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Prefix_Fn_F</name>
+        <label>Prefix Fn F</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.FirstName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Female_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rating_Decision</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Prefix_Fn_M</name>
+        <label>Prefix Fn M</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.FirstName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Male_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_2_of_Rating_Decision</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <description>Last R Hot</description>
+        <name>Rating_Hot_Error</name>
+        <label>Rating Hot Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <customErrorMessages>
+            <errorMessage>&quot;Err&quot;+ {!Rating_Hot_Error}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Copy_1_of_Rating_Decision</name>
+        <label>Copy 1 of Rating Decision</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Rating_Hot</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Hot</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Lead_Source_Web</targetReference>
+            </connector>
+            <label>Copy 1 of Rating Hot</label>
+        </rules>
+        <rules>
+            <name>Copy_1_of_Rating_Cold</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cold</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Lead_Source_Partner_Referral</targetReference>
+            </connector>
+            <label>Copy 1 of Rating Cold</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_2_of_Rating_Decision</name>
+        <label>Copy 2 of Rating Decision</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_2_of_Rating_Hot</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Hot</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Lead_Source_Web</targetReference>
+            </connector>
+            <label>Copy 2 of Rating Hot</label>
+        </rules>
+        <rules>
+            <name>Copy_2_of_Rating_Cold</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cold</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Lead_Source_Partner_Referral</targetReference>
+            </connector>
+            <label>Copy 2 of Rating Cold</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Decsion_Gender</name>
+        <label>Decsion Gender</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Gender_M</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Gender__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Male</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Prefix_Fn_M</targetReference>
+            </connector>
+            <label>Gender M</label>
+        </rules>
+        <rules>
+            <name>Gender_F</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Gender__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Female</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Prefix_Fn_F</targetReference>
+            </connector>
+            <label>Gender F</label>
+        </rules>
+        <rules>
+            <name>Gender_No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Gender__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Don&apos;t Like to Say</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Prefix_Fn_0_0</targetReference>
+            </connector>
+            <label>Gender No</label>
+        </rules>
+        <rules>
+            <name>Rating_Hot</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Hot</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Rating_Hot_Error</targetReference>
+            </connector>
+            <label>Rating Hot</label>
+        </rules>
+        <rules>
+            <name>Rating_Cold</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cold</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Rating Cold</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rating_Decision</name>
+        <label>Rating Decision</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Rating_Hot1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Hot</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_Source_Web</targetReference>
+            </connector>
+            <label>Rating Hot</label>
+        </rules>
+        <rules>
+            <name>Rating_Cold1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cold</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_Source_Partner_Referral</targetReference>
+            </connector>
+            <label>Rating Cold</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Female_Formula</name>
+        <dataType>String</dataType>
+        <expression>&quot;Ms.&quot; + {!$Record.FirstName}</expression>
+    </formulas>
+    <formulas>
+        <name>Gender_No_Like_to_say</name>
+        <dataType>String</dataType>
+        <expression>&quot;--Say&quot; + {!$Record.FirstName}</expression>
+    </formulas>
+    <formulas>
+        <name>Male_Formula</name>
+        <dataType>String</dataType>
+        <expression>&quot;Mr. &quot; + {!$Record.FirstName}</expression>
+    </formulas>
+    <interviewLabel>RTF1 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RTF1</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decsion_Gender</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Gender__c</field>
+            <operator>NotEqualTo</operator>
+        </filters>
+        <filters>
+            <field>Rating</field>
+            <operator>NotEqualTo</operator>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

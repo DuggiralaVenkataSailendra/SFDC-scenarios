@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expense_Item_Date_Lessthan_VR</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK( Date__c )</errorConditionFormula>
+    <errorDisplayField>Date__c</errorDisplayField>
+    <errorMessage>Date Must be Lessthan</errorMessage>
+</ValidationRule>
